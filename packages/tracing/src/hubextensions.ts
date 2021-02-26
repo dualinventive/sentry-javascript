@@ -35,7 +35,7 @@ function traceHeaders(this: Hub): { [key: string]: string } {
  */
 function sample<T extends Transaction>(hub: Hub, transaction: T, samplingContext: SamplingContext): T {
   const client = hub.getClient();
-  const options = (client && client.getOptions()) || {};
+  const options = client?.options ?? {};
 
   // nothing to do if there's no client or if tracing is disabled
   if (!client || !hasTracingEnabled(options)) {
