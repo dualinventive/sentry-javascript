@@ -16,6 +16,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@sentry/scope": "7.0.0-alpha.0",
     "@sentry/types": "6.1.0",
     "@sentry/utils": "6.1.0"
   },
