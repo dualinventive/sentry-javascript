@@ -130,6 +130,17 @@ export function supportsReportingObserver(): boolean {
 }
 
 /**
+ * Tells whether current environment supports sendBeacon API
+ * {@link supportsBeacon}.
+ *
+ * @returns Answer to the given question.
+ */
+export function supportsBeacon(): boolean {
+  const global = getGlobalObject() as Window;
+  return 'navigator' in global && 'sendBeacon' in global.navigator;
+}
+
+/**
  * Tells whether current environment supports Referrer Policy API
  * {@link supportsReferrerPolicy}.
  *

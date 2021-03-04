@@ -1,9 +1,9 @@
 import { BaseBackend } from '@sentry/core';
 import { Event, EventHint, Options, Severity, Transport } from '@sentry/types';
-import { supportsFetch } from '@sentry/utils';
+import { supportsBeacon,supportsFetch } from '@sentry/utils';
 
 import { eventFromException, eventFromMessage } from './eventbuilder';
-import { FetchTransport, XHRTransport } from './transports';
+import { BeaconTransport, FetchTransport, XHRTransport } from "./transports";
 
 /**
  * Configuration options for the Sentry Browser SDK.
@@ -72,6 +72,10 @@ export class BrowserBackend extends BaseBackend<BrowserOptions> {
 
     if (this._options.transport) {
       return new this._options.transport(transportOptions);
+    }
+
+    if (supportsBeacon()) {
+      return new BeaconTransport(transportOptions);
     }
     if (supportsFetch()) {
       return new FetchTransport(transportOptions);
