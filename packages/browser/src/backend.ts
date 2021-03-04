@@ -1,9 +1,9 @@
 import { BaseBackend } from '@sentry/core';
 import { Event, EventHint, Options, Severity, Transport } from '@sentry/types';
-import { supportsBeacon,supportsFetch } from '@sentry/utils';
+import { supportsBeacon, supportsFetch } from '@sentry/utils';
 
 import { eventFromException, eventFromMessage } from './eventbuilder';
-import { BeaconTransport, FetchTransport, XHRTransport } from "./transports";
+import { BeaconTransport, FetchTransport, XHRTransport } from './transports';
 
 /**
  * Configuration options for the Sentry Browser SDK.
