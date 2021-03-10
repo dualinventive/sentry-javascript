@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Event, EventProcessor, Hub, Integration } from '@sentry/types';
-import { getGlobalObject, logger, uuid4 } from '@sentry/utils';
+import { getGlobalObject, logger, normalize, uuid4 } from '@sentry/utils';
 import localForage from 'localforage';
 /**
  * cache offline errors and send when connected
@@ -95,7 +95,7 @@ export class Offline implements Integration {
    * @param event an event
    */
   private async _cacheEvent(event: Event): Promise<Event> {
-    return this.offlineEventStore.setItem<Event>(uuid4(), event);
+    return this.offlineEventStore.setItem<Event>(uuid4(), normalize(event));
   }
 
   /**
