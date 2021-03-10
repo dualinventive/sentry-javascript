@@ -4,6 +4,13 @@
 
 - "You miss 100 percent of the chances you don't take. — Wayne Gretzky" — Michael Scott
 
+## 6.2.2
+
+- [ember] fix: keep route hook context when performance-wrapping
+- [core] fix: Prevent fetch errors loops with invalid fetch implementations
+- [integrations] fix: Normalized Event before caching.
+- [integrations] fix: keep route hook context when performance-wrapping
+
 ## 6.2.1
 
 - [core] fix: Moves SDK metadata-setting into the `NodeClient/BrowserClient` to protect it from being overwritten by other classes extending `BaseClient` like @sentry/serverless (#3279)
